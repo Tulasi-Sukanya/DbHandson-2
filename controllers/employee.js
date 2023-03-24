@@ -62,7 +62,7 @@ const getExpEmployeeData=async (req,res)=>{
 
 // Query the collection ""employee"" and list the employees who are graduated after 2015 and having experience more than 1 year 
 const getGradEmployeeData=async (req,res)=>{
-    const queryParams={"yearGrad":{'$gt':"2015"}}&&{"overallExp":{'$gt':"1"}};
+    const queryParams={"yearGrad":{'$gt':"2015"}}&&{"overallExp":{'$gt':"2"}};
     console.log(queryParams);
     try{
         const result=await mongoClient.findGradInDb(queryParams);
@@ -97,7 +97,7 @@ const updateEmployeeData=async(req,res)=>{
 // Delete all the documents from ""employee"" where last company is Y"
 
 const deleteEmployeeData=async(req,res)=>{
-    const condition=({"lastCompany":"Y"});
+    const condition={"lastCompany":"Y"};
     console.log(condition);
     try{
         const result=await mongoClient.deleteInDb(condition);
